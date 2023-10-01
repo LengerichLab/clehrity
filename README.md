@@ -23,7 +23,9 @@
 
 ## Features
 
-- EHR deconfounding
+EHR deconfounding via:
+- Statistical tests of discontinuity / non-monotoncities
+- Integration with LLMs to find surprising / counter-causal effects
 
 ## Requirements
 
