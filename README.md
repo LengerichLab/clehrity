@@ -23,7 +23,7 @@
 
 ## Features
 
-- TODO
+- EHR deconfounding
 
 ## Requirements
 
