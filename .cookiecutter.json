@@ -1,0 +1,15 @@
+{
+  "_output_dir": "/Users/blengerich/Dropbox/Professional/Research/Libraries",
+  "_repo_dir": "/Users/blengerich/.cookiecutters/cookiecutter-hypermodern-python",
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Ben Lengerich",
+  "copyright_year": "2023",
+  "development_status": "Development Status :: 3 - Alpha",
+  "email": "blengerich@gmail.com",
+  "friendly_name": "Clehrity",
+  "github_user": "blengerich",
+  "license": "MIT",
+  "package_name": "clehrity",
+  "project_name": "clehrity",
+  "version": "0.0.0"
+}
