@@ -1,6 +1,8 @@
 """
 Find changing effects that indicate hidden confounding.
 """
+
+import anndata as ad
 import pandas as pd
 from ebm_utils.analysis.changepoints import find_discontinuities  # type: ignore
 from ebm_utils.analysis.changepoints import find_non_monotonicities  # type: ignore
@@ -9,7 +11,11 @@ from ebm_utils.analysis.plot_utils import standardize
 
 
 def non_monotonicities(
-    adata, outcome_col, ebm_constructor_kwargs=None, ebm_fit_kwargs=None, **kwargs
+    adata: ad.AnnData,
+    outcome_col: str,
+    ebm_constructor_kwargs: dict | None = None,
+    ebm_fit_kwargs: dict | None = None,
+    **kwargs: dict
 ) -> pd.DataFrame:
     """Find and plot non-monotoniciites in an AnnData of predictors and outcomes.
 
@@ -60,7 +66,11 @@ def non_monotonicities(
 
 
 def discontinuities(
-    adata, outcome_col, ebm_constructor_kwargs=None, ebm_fit_kwargs=None, **kwargs
+    adata: ad.AnnData,
+    outcome_col: str,
+    ebm_constructor_kwargs: dict | None = None,
+    ebm_fit_kwargs: dict | None = None,
+    **kwargs: dict
 ) -> pd.DataFrame:
     """Find and plot discontinuities in an AnnData of predictors and outcomes.
 
