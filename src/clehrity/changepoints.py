@@ -2,9 +2,9 @@
 Find changing effects that indicate hidden confounding.
 """
 import pandas as pd
-from ebm_utils.analysis.changepoints import find_discontinuities
-from ebm_utils.analysis.changepoints import find_non_monotonicities
-from ebm_utils.analysis.plot_utils import plot_feat
+from ebm_utils.analysis.changepoints import find_discontinuities  # type: ignore
+from ebm_utils.analysis.changepoints import find_non_monotonicities  # type: ignore
+from ebm_utils.analysis.plot_utils import plot_feat  # type: ignore
 from ebm_utils.analysis.plot_utils import standardize
 
 
