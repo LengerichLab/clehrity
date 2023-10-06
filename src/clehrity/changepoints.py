@@ -1,4 +1,5 @@
-""" clehrity.changepoints
+"""Change point analysis via Explainable Boosting Machines.
+
 Find changing effects that indicate hidden confounding.
 Uses the utilities in ebm_utils to find and plot non-monotonicities and discontinuities.
 """
@@ -6,7 +7,7 @@ Uses the utilities in ebm_utils to find and plot non-monotonicities and disconti
 import anndata as ad  # type: ignore
 import pandas as pd  # type: ignore
 from ebm_utils.analysis.changepoints import find_discontinuities  # type: ignore
-from ebm_utils.analysis.changepoints import find_non_monotonicities  # type: ignore
+from ebm_utils.analysis.changepoints import find_non_monotonicities
 from ebm_utils.analysis.plot_utils import plot_feat  # type: ignore
 from ebm_utils.analysis.plot_utils import standardize
 
