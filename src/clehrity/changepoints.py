@@ -1,9 +1,10 @@
-"""
+""" clehrity.changepoints
 Find changing effects that indicate hidden confounding.
+Uses the utilities in ebm_utils to find and plot non-monotonicities and discontinuities.
 """
 
-import anndata as ad
-import pandas as pd
+import anndata as ad  # type: ignore
+import pandas as pd  # type: ignore
 from ebm_utils.analysis.changepoints import find_discontinuities  # type: ignore
 from ebm_utils.analysis.changepoints import find_non_monotonicities  # type: ignore
 from ebm_utils.analysis.plot_utils import plot_feat  # type: ignore
@@ -11,11 +12,7 @@ from ebm_utils.analysis.plot_utils import standardize
 
 
 def non_monotonicities(
-    adata: ad.AnnData,
-    outcome_col: str,
-    ebm_constructor_kwargs: dict | None = None,
-    ebm_fit_kwargs: dict | None = None,
-    **kwargs: dict
+    adata: ad.AnnData, outcome_col: str, **kwargs: str
 ) -> pd.DataFrame:
     """Find and plot non-monotoniciites in an AnnData of predictors and outcomes.
 
@@ -25,11 +22,7 @@ def non_monotonicities(
         AnnData object with observations in rows and features in columns.
     outcome_col : str
         Name of the column in adata.obs that contains the outcome variable.
-    ebm_constructor_kwargs : dict, optional
-        Keyword arguments to pass to the ExplainableBoostingClassifier constructor.
-    ebm_fit_kwargs : dict, optional
-        Keyword arguments to pass to the ExplainableBoostingClassifier fit method.
-    **kwargs : dict, optional
+    kwargs : dict, optional
         Keyword arguments to pass to find_non_monotonicities.
 
     Returns
@@ -65,13 +58,7 @@ def non_monotonicities(
     return results_df
 
 
-def discontinuities(
-    adata: ad.AnnData,
-    outcome_col: str,
-    ebm_constructor_kwargs: dict | None = None,
-    ebm_fit_kwargs: dict | None = None,
-    **kwargs: dict
-) -> pd.DataFrame:
+def discontinuities(adata: ad.AnnData, outcome_col: str, **kwargs: str) -> pd.DataFrame:
     """Find and plot discontinuities in an AnnData of predictors and outcomes.
 
     Parameters
@@ -80,11 +67,7 @@ def discontinuities(
         AnnData object with observations in rows and features in columns.
     outcome_col : str
         Name of the column in adata.obs that contains the outcome variable.
-    ebm_constructor_kwargs : dict, optional
-        Keyword arguments to pass to the ExplainableBoostingClassifier constructor.
-    ebm_fit_kwargs : dict, optional
-        Keyword arguments to pass to the ExplainableBoostingClassifier fit method.
-    **kwargs : dict, optional
+    kwargs : dict, optional
         Keyword arguments to pass to find_discontinuities.
 
     Returns
@@ -103,8 +86,8 @@ def discontinuities(
         x,
         y,
         return_ebm=True,
-        ebm_constructor_kwargs=ebm_constructor_kwargs,
-        ebm_fit_kwargs=ebm_fit_kwargs,
+        ebm_constructor_kwargs=kwargs.pop("ebm_constructor_kwargs"),
+        ebm_fit_kwargs=kwargs.pop("ebm_fit_kwargs"),
         **kwargs,
     )
     for feature in set(results_df["Feature"].values):
