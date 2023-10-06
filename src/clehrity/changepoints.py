@@ -1,5 +1,6 @@
-# clEHRity.changepoints
-# Find changing effects that indicate hidden confounding.
+"""
+Find changing effects that indicate hidden confounding.
+"""
 
 from ebm_utils.analysis.changepoints import find_discontinuities
 from ebm_utils.analysis.changepoints import find_non_monotonicities
@@ -34,12 +35,12 @@ def non_monotonicities(
             - Direction: direction of the non-monotonicity
             - Score: score of the non-monotonicity
     """
-    X = adata.obs
-    Y = adata.obs[outcome_col]
-    X.drop(outcome_col, axis=1, inplace=True)
+    x = adata.obs
+    y = adata.obs[outcome_col]
+    x.drop(outcome_col, axis=1, inplace=True)
     results_df, ebm = find_non_monotonicities(
-        X,
-        Y,
+        x,
+        y,
         return_ebm=True,
         ebm_constructor_kwargs=kwargs.pop("ebm_constructor_kwargs"),
         ebm_fit_kwargs=kwargs.pop("ebm_fit_kwargs"),
@@ -51,7 +52,7 @@ def non_monotonicities(
         plot_feat(
             ebm.explain_global(),
             feature,
-            X_train=X,
+            X_train=x,
             classification=kwargs.get("classification", True),
             axlines={standardize(feature): x_vals},
         )
@@ -85,12 +86,12 @@ def discontinuities(
             - Direction: direction of the discontinuity
             - Score: score of the discontinuity
     """
-    X = adata.obs
-    Y = adata.obs[outcome_col]
-    X.drop(outcome_col, axis=1, inplace=True)
+    x = adata.obs
+    y = adata.obs[outcome_col]
+    x.drop(outcome_col, axis=1, inplace=True)
     results_df, ebm = find_discontinuities(
-        X,
-        Y,
+        x,
+        y,
         return_ebm=True,
         ebm_constructor_kwargs=ebm_constructor_kwargs,
         ebm_fit_kwargs=ebm_fit_kwargs,
@@ -102,7 +103,7 @@ def discontinuities(
         plot_feat(
             ebm.explain_global(),
             feature,
-            X_train=X,
+            X_train=x,
             classification=kwargs.get("classification", True),
             axlines={standardize(feature): x_vals},
         )
