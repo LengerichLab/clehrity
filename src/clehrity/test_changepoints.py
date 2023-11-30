@@ -15,7 +15,7 @@ SAMPLE_OBS = {
     "feature2": np.linspace(-1, 1, num=N_SAMPLES),
     "outcome": [i > 50 for i in range(N_SAMPLES)],
 }
-SAMPLE_DF = pd.DataFrame(SAMPLE_OBS)
+SAMPLE_DF = pd.DataFrame(SAMPLE_OBS, dtype=np.float32)
 SAMPLE_ANNDATA = ad.AnnData(SAMPLE_DF)
 
 

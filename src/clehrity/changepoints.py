@@ -4,6 +4,7 @@ Uses the utilities in ebm_utils to find and plot non-monotonicities and disconti
 """
 
 import anndata as ad  # type: ignore
+import numpy as np
 import pandas as pd
 from ebm_utils.analysis.changepoints import find_discontinuities  # type: ignore
 from ebm_utils.analysis.changepoints import find_non_monotonicities
@@ -32,7 +33,7 @@ def non_monotonicities(
             - Direction: direction of the non-monotonicity
             - Score: score of the non-monotonicity
     """
-    x = pd.DataFrame(adata.X, columns=adata.var.index)
+    x = pd.DataFrame(adata.X, columns=adata.var.index).astype(np.float32)
     y = x[outcome_col].copy()
     x.drop(outcome_col, axis=1, inplace=True)
     results_df, ebm = find_non_monotonicities(
@@ -75,7 +76,7 @@ def discontinuities(adata: ad.AnnData, outcome_col: str, **kwargs: str) -> pd.Da
             - Direction: direction of the discontinuity
             - Score: score of the discontinuity
     """
-    x = pd.DataFrame(adata.X, columns=adata.var.index)
+    x = pd.DataFrame(adata.X, columns=adata.var.index).astype(np.float32)
     y = x[outcome_col].copy()
     x.drop(outcome_col, axis=1, inplace=True)
     results_df, ebm = find_discontinuities(
