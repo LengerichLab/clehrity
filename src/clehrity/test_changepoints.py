@@ -1,4 +1,4 @@
-"""Unit tests for changepoints.py
+"""Unit tests for changepoints.py.
 
 These tests can be run from the root directory using:
     pytest src/clehrity/test_changepoints.py
