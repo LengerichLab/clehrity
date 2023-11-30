@@ -4,6 +4,9 @@ Find changing effects that indicate hidden confounding.
 Uses the utilities in ebm_utils to find and plot non-monotonicities and discontinuities.
 """
 
+from typing import Any
+from typing import Dict
+
 import anndata as ad  # type: ignore
 import numpy as np
 import pandas as pd
@@ -14,7 +17,7 @@ from ebm_utils.analysis.plot_utils import standardize
 
 
 def non_monotonicities(
-    adata: ad.AnnData, outcome_col: str, **kwargs: dict
+    adata: ad.AnnData, outcome_col: str, **kwargs: Dict[str, Any]
 ) -> pd.DataFrame:
     """Find and plot non-monotoniciites in an AnnData of predictors and outcomes.
 
@@ -61,7 +64,7 @@ def non_monotonicities(
 
 
 def discontinuities(
-    adata: ad.AnnData, outcome_col: str, **kwargs: dict
+    adata: ad.AnnData, outcome_col: str, **kwargs: Dict[str, Any]
 ) -> pd.DataFrame:
     """Find and plot discontinuities in an AnnData of predictors and outcomes.
 
