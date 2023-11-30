@@ -1,16 +1,19 @@
-"""test_changepoints
+"""Unit tests for changepoints.py
 
-Unit tests for changepoints.py
+These tests can be run from the root directory using:
+    pytest src/clehrity/test_changepoints.py
 """
 
 import anndata as ad  # type: ignore
 import numpy as np
 import pandas as pd
 import pytest
-from pytest import FixtureRequest
 
 from clehrity.changepoints import discontinuities
 from clehrity.changepoints import non_monotonicities
+
+
+# from pytest import FixtureRequest
 
 
 # Sample data for testing
@@ -30,13 +33,13 @@ def sample_anndata() -> ad.AnnData:
     return SAMPLE_ANNDATA.copy()
 
 
-def test_non_monotonicities_returns_dataframe(sample_anndata: FixtureRequest) -> None:
+def test_non_monotonicities_returns_dataframe(sample_anndata: ad.AnnData) -> None:
     """Test non_monotonicities function returns a DataFrame."""
     result = non_monotonicities(sample_anndata, "outcome")
     assert isinstance(result, pd.DataFrame)
 
 
-def test_discontinuities_returns_dataframe(sample_anndata: FixtureRequest) -> None:
+def test_discontinuities_returns_dataframe(sample_anndata: ad.AnnData) -> None:
     """Test discontinuities function returns a DataFrame."""
     result = discontinuities(sample_anndata, "outcome")
     assert isinstance(result, pd.DataFrame)

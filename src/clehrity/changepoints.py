@@ -1,6 +1,5 @@
-"""Changepoints
+"""Change point analysis via Explainable Boosting Machines.
 
-Change point analysis via Explainable Boosting Machines.
 Find changing effects that indicate hidden confounding.
 Uses the utilities in ebm_utils to find and plot non-monotonicities and discontinuities.
 """
@@ -63,6 +62,7 @@ def non_monotonicities(
 
 def discontinuities(adata: ad.AnnData, outcome_col: str, **kwargs: str) -> pd.DataFrame:
     """Find and plot discontinuities in an AnnData of predictors and outcomes.
+
     Parameters
     ----------
     adata : AnnData
@@ -71,6 +71,7 @@ def discontinuities(adata: ad.AnnData, outcome_col: str, **kwargs: str) -> pd.Da
         Name of the column in adata.obs that contains the outcome variable.
     kwargs : dict, optional
         Keyword arguments to pass to find_discontinuities.
+
     Returns
     -------
     results_df : pd.DataFrame
