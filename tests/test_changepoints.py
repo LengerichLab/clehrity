@@ -15,11 +15,13 @@ from clehrity.changepoints import non_monotonicities
 
 # Sample data for testing
 N_SAMPLES = 100
+N_FEATURES = 3
 SAMPLE_OBS = {
-    "feature1": np.random.uniform(-1, 1, size=N_SAMPLES),
-    "feature2": np.linspace(-1, 1, num=N_SAMPLES),
-    "outcome": [i > 50 for i in range(N_SAMPLES)],
+    f"feature{i}": np.random.uniform(-1, 1, size=N_SAMPLES) for i in range(N_FEATURES)
 }
+SAMPLE_OBS["outcome"] = np.logical_or(
+    SAMPLE_OBS["feature1"] > 0, SAMPLE_OBS["feature2"] > 0
+)
 SAMPLE_DF = pd.DataFrame(SAMPLE_OBS, dtype=np.float32)
 SAMPLE_ANNDATA = ad.AnnData(SAMPLE_DF)
 
@@ -38,12 +40,5 @@ def test_non_monotonicities_returns_dataframe(sample_anndata: ad.AnnData) -> Non
 
 def test_discontinuities_returns_dataframe(sample_anndata: ad.AnnData) -> None:
     """Test discontinuities function returns a DataFrame."""
-    result = discontinuities(sample_anndata, "outcome")
+    result = discontinuities(sample_anndata, "outcome", min_samples=2)
     assert isinstance(result, pd.DataFrame)
-
-
-# More detailed tests could include:
-# 1. Testing with various input data.
-# 2. Validating the structure and content of the returned DataFrame.
-# 3. Mocking dependencies if needed to isolate the function's logic.
-# 4. Testing edge cases and error handling.
