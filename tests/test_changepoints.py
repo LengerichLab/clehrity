@@ -9,8 +9,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from clehrity.changepoints import discontinuities
-from clehrity.changepoints import non_monotonicities
+from src.clehrity.changepoints import discontinuities
+from src.clehrity.changepoints import non_monotonicities
 
 
 # Sample data for testing
