@@ -2,7 +2,7 @@
 import pytest
 from click.testing import CliRunner
 
-from src.clehrity import __main__
+from clehrity import __main__
 
 
 @pytest.fixture
