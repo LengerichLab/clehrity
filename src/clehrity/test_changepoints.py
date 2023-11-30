@@ -1,3 +1,8 @@
+"""test_changepoints
+
+Unit tests for changepoints.py
+"""
+
 import anndata as ad  # type: ignore
 import numpy as np
 import pandas as pd
@@ -38,7 +43,7 @@ def test_discontinuities_returns_dataframe(sample_anndata: FixtureRequest) -> No
 
 
 # More detailed tests could include:
-# 1. Testing with various input data to ensure the function handles different cases correctly.
+# 1. Testing with various input data.
 # 2. Validating the structure and content of the returned DataFrame.
 # 3. Mocking dependencies if needed to isolate the function's logic.
 # 4. Testing edge cases and error handling.
