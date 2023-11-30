@@ -16,9 +16,15 @@ classifiers = [
 Changelog = "https://github.com/blengerich/clehrity/releases"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.9,<4.0"
 click = ">=8.0.1"
 tornado = ">=6.3.2"
+anndata = "^0.10.3"
+interpret = "^0.4.4"
+ebm-utils = ">=0.0.3"
+ruptures = "^1.1.8"
+pandas-stubs = "^2.1.1.230928"
+gam-purification = "^0.0.1"
 
 [tool.poetry.dev-dependencies]
 Pygments = ">=2.10.0"
