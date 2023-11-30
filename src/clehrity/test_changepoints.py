@@ -13,9 +13,6 @@ from clehrity.changepoints import discontinuities
 from clehrity.changepoints import non_monotonicities
 
 
-# from pytest import FixtureRequest
-
-
 # Sample data for testing
 N_SAMPLES = 100
 SAMPLE_OBS = {
