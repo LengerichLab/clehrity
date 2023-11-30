@@ -5,7 +5,6 @@ Uses the utilities in ebm_utils to find and plot non-monotonicities and disconti
 """
 
 from typing import Any
-from typing import Dict
 
 import anndata as ad  # type: ignore
 import numpy as np
@@ -17,7 +16,7 @@ from ebm_utils.analysis.plot_utils import standardize
 
 
 def non_monotonicities(
-    adata: ad.AnnData, outcome_col: str, **kwargs: Dict[str, Any]
+    adata: ad.AnnData, outcome_col: str, **kwargs: Any
 ) -> pd.DataFrame:
     """Find and plot non-monotoniciites in an AnnData of predictors and outcomes.
 
@@ -63,9 +62,7 @@ def non_monotonicities(
     return results_df  # type: ignore
 
 
-def discontinuities(
-    adata: ad.AnnData, outcome_col: str, **kwargs: Dict[str, Any]
-) -> pd.DataFrame:
+def discontinuities(adata: ad.AnnData, outcome_col: str, **kwargs: Any) -> pd.DataFrame:
     """Find and plot discontinuities in an AnnData of predictors and outcomes.
 
     Parameters
