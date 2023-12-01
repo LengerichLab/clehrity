@@ -1,4 +1,4 @@
-# Clehrity
+<img src="https://github.com/blengerich/clehrity/blob/main/assets/clehrity_logo.svg" width="600px"/>
 
 [![PyPI](https://img.shields.io/pypi/v/clehrity.svg)][pypi_]
 [![Status](https://img.shields.io/pypi/status/clehrity.svg)][status]
